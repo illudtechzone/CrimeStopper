@@ -1,0 +1,37 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.illud.crimestopper"
+    },
+    "jhipsterVersion": "6.7.1",
+    "applicationType": "microservice",
+    "baseName": "CrimeStopper",
+    "packageName": "com.illud.crimestopper",
+    "packageFolder": "com/illud/crimestopper",
+    "serverPort": "8082",
+    "authenticationType": "oauth2",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YTY2MzA4OGIzNWI5M2EwZjU2MTkyNWE1MDZmY2NhYmYyNjUxYjRiZWY2NWI3YjhhMTlkNTRjZDlkODAyZmM3YmYxNWU0NzMxMTVmZTkxZjA3YzE3MDVjNGVkN2M4OWU0MmZhNjJhYjVmMDhiODliNTM1M2JiODZhNTI1MzMwODg=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1582268660480,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

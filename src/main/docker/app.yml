@@ -1,0 +1,23 @@
+version: '2'
+services:
+  crimestopper-app:
+    image: crimestopper
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
+      - SPRING_DATASOURCE_URL=jdbc:mysql://crimestopper-mysql:3306/crimestopper?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
+      - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI=http://keycloak:9080/auth/realms/jhipster
+      - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID=internal
+      - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET=internal
+      - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
+      - SPRING_DATA_JEST_URI=http://crimestopper-elasticsearch:9200
+      - SPRING_ELASTICSEARCH_REST_URIS=http://crimestopper-elasticsearch:9200
+  crimestopper-mysql:
+    extends:
+      file: mysql.yml
+      service: crimestopper-mysql
+  crimestopper-elasticsearch:
+    extends:
+      file: elasticsearch.yml
+      service: crimestopper-elasticsearch
