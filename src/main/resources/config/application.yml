@@ -129,11 +129,11 @@ spring:
       client:
         provider:
           oidc:
-            issuer-uri: http://localhost:9080/auth/realms/jhipster
+            issuer-uri: http://35.211.83.193:8099/auth/realms/Ayoos
         registration:
           oidc:
-            client-id: internal
-            client-secret: internal
+            client-id: account
+            client-secret: d5a6fa20-eb79-40b0-8193-a9370e2e7b44
 
 server:
   servlet:

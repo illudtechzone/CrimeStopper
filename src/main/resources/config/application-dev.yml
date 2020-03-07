@@ -63,9 +63,18 @@ spring:
       hibernate.generate_statistics: false
   data:
     elasticsearch:
+      cluster-name: da6cd874235b4c3a81df644f9f17d80c
+      cluster-nodes: https://da6cd874235b4c3a81df644f9f17d80c.asia-south1.gcp.elastic-cloud.com:9243/
       properties:
         path:
+          logs: target/elasticsearch/log
+          data: target/elasticsearch/data
           home: target/elasticsearch
+    jest:
+      password: mQ1MreurhZrtdFUUF0ZsCW38
+      username: elastic
+      readTimeout: 10000
+      uri: https://da6cd874235b4c3a81df644f9f17d80c.asia-south1.gcp.elastic-cloud.com:9243/
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: dev, faker

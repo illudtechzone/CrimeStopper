@@ -1,0 +1,33 @@
+{
+    "name": "UserExtra",
+    "fields": [
+        {
+            "fieldName": "phone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "currentLatitude",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "currentLongitude",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200306085117",
+    "entityTableName": "user_extra",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "CrimeStopper",
+    "applications": "*",
+    "microserviceName": "CrimeStopper"
+}

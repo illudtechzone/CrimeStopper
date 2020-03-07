@@ -1,0 +1,53 @@
+
+
+entity UserExtra {
+	phone String,
+    address String,
+    currentLatitude String,
+    currentLongitude String
+}
+
+entity Complaint {
+	description String,
+    userIdpCode String,
+    address String,
+    latitude String,
+    longitude String,
+    createdOn Instant
+    
+    
+}
+
+
+entity Authority {
+     name String,
+     authorityIdpCode String,
+     phone String,
+     address String,
+     website String
+}
+
+entity Media {
+	fileLink String,
+    file Blob
+}
+relationship ManyToMany {
+     Complaint{authority} to Authority{complaint} 
+}
+
+relationship OneToMany {
+     Complaint{media} to Media{complaint}
+}
+
+// Set pagination options
+
+paginate all with pagination
+
+// Use Data Transfert Objects (DTO)
+ dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

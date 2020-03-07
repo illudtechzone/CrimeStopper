@@ -1,0 +1,56 @@
+{
+    "name": "Complaint",
+    "fields": [
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "userIdpCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "latitude",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "longitude",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdOn",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "media",
+            "otherEntityRelationshipName": "complaint",
+            "relationshipName": "media"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "authority",
+            "otherEntityRelationshipName": "complaint",
+            "relationshipName": "authority",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20200306085118",
+    "entityTableName": "complaint",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "CrimeStopper",
+    "applications": "*",
+    "microserviceName": "CrimeStopper"
+}
