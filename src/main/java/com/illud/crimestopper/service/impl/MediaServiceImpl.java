@@ -1,5 +1,6 @@
 package com.illud.crimestopper.service.impl;
 
+import com.illud.crimestopper.service.ImageService;
 import com.illud.crimestopper.service.MediaService;
 import com.illud.crimestopper.domain.Media;
 import com.illud.crimestopper.repository.MediaRepository;
@@ -8,12 +9,13 @@ import com.illud.crimestopper.service.dto.MediaDTO;
 import com.illud.crimestopper.service.mapper.MediaMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.UUID;
 import java.util.Optional;
 
 import static org.elasticsearch.index.query.QueryBuilders.*;
@@ -26,6 +28,9 @@ import static org.elasticsearch.index.query.QueryBuilders.*;
 public class MediaServiceImpl implements MediaService {
 
     private final Logger log = LoggerFactory.getLogger(MediaServiceImpl.class);
+	
+	@Autowired
+	private ImageService imageService;
 
     private final MediaRepository mediaRepository;
 
@@ -48,7 +53,10 @@ public class MediaServiceImpl implements MediaService {
     @Override
     public MediaDTO save(MediaDTO mediaDTO) {
         log.debug("Request to save Media : {}", mediaDTO);
-        Media media = mediaMapper.toEntity(mediaDTO);
+        Media media=mediaMapper.toEntity(mediaDTO);
+		
+		String imageLink = imageService.saveFile("media", UUID.randomUUID().toString(), mediaDTO.getFile());
+		media.setFileLink(imageLink);
         media = mediaRepository.save(media);
         MediaDTO result = mediaMapper.toDto(media);
         mediaSearchRepository.save(media);

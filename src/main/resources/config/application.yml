@@ -191,3 +191,13 @@ jhipster:
 # ===================================================================
 
 # application:
+
+minio:
+  server:
+    url:  http://127.0.0.1:9000
+    accessKey:  minioadmin
+    secretKey:  minioadmin
+  buckets:
+    media: media-images
+  configuration:
+    contentType: images/png       
