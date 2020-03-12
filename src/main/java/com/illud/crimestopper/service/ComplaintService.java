@@ -4,9 +4,10 @@ import com.illud.crimestopper.service.dto.ComplaintDTO;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 
 import java.util.Optional;
-
+import java.util.List;
 /**
  * Service Interface for managing {@link com.illud.crimestopper.domain.Complaint}.
  */
@@ -59,4 +60,6 @@ public interface ComplaintService {
      * @return the list of entities.
      */
     Page<ComplaintDTO> search(String query, Pageable pageable);
+
+	Page<ComplaintDTO> findComplaintByAuthorityId(Long authorityId,Pageable pageable);
 }

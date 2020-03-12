@@ -149,4 +149,14 @@ public class ComplaintResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
+    
+    @GetMapping("/findComplaintByAuthorityId/{authorityId}")
+    public ResponseEntity<List<ComplaintDTO>> findComplaintByAuthorityId(@PathVariable Long authorityId,Pageable pageable)
+    {
+    	
+		 Page<ComplaintDTO> page = complaintService.findComplaintByAuthorityId(authorityId,pageable);
+    	 HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+
+    	return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
 }

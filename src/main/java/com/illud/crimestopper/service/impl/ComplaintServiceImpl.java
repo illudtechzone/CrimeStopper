@@ -11,13 +11,14 @@ import org.slf4j.LoggerFactory;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
 import static org.elasticsearch.index.query.QueryBuilders.*;
-
+import java.util.List;
 /**
  * Service Implementation for managing {@link Complaint}.
  */
@@ -118,5 +119,13 @@ public class ComplaintServiceImpl implements ComplaintService {
         log.debug("Request to search for a page of Complaints for query {}", query);
         return complaintSearchRepository.search(queryStringQuery(query), pageable)
             .map(complaintMapper::toDto);
+    }
+    
+    public Page<ComplaintDTO> findComplaintByAuthorityId(Long authorityId,Pageable pageable)
+    {
+		
+    	/*log.debug("//////////////////////", complaintRepository.findByAuthorities_id(authorityId));*/
+    	return complaintRepository.findByAuthorities_id(authorityId,pageable)
+    			.map(complaintMapper::toDto);
     }
 }
