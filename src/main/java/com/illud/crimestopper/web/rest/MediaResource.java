@@ -144,4 +144,13 @@ public class MediaResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
+    
+    @GetMapping("/findAllMediaByComplaintId/{complaintId}")
+    public ResponseEntity<List<MediaDTO>> findAllMediaByComplaintId(@PathVariable Long complaintId,Pageable pageable)
+    {
+    	Page<MediaDTO> page = mediaService.findAllMediaByComplaintId(complaintId, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+
+    }
 }

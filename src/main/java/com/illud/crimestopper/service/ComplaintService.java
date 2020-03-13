@@ -62,4 +62,6 @@ public interface ComplaintService {
     Page<ComplaintDTO> search(String query, Pageable pageable);
 
 	Page<ComplaintDTO> findComplaintByAuthorityId(Long authorityId,Pageable pageable);
+
+	Page<ComplaintDTO> findComplaintByUserIdpCode(String userIdpCode, Pageable pageable);
 }

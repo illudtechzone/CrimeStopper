@@ -31,4 +31,6 @@ public interface ComplaintRepository extends JpaRepository<Complaint, Long> {
 
 	Page<Complaint> findByAuthorities_id(Long id,Pageable pageable);
 
+	Page<Complaint> findComplaintByUserIdpCode(String userIdpCode, Pageable pageable);
+
 }

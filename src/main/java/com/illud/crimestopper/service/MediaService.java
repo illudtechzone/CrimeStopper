@@ -53,4 +53,6 @@ public interface MediaService {
      * @return the list of entities.
      */
     Page<MediaDTO> search(String query, Pageable pageable);
+
+	Page<MediaDTO> findAllMediaByComplaintId(Long complaintId, Pageable pageable);
 }

@@ -159,4 +159,14 @@ public class ComplaintResource {
 
     	return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
+    
+    @GetMapping("/findComplaintByUserIdpCode/{userIdpCode}")
+    public ResponseEntity<List<ComplaintDTO>> findComplaintByUserIdpCode(@PathVariable String userIdpCode,Pageable pageable)
+    {
+    	Page<ComplaintDTO> page = complaintService.findComplaintByUserIdpCode(userIdpCode,pageable);
+   	 HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+
+   	return ResponseEntity.ok().headers(headers).body(page.getContent());
+
+    }
 }

@@ -128,4 +128,10 @@ public class ComplaintServiceImpl implements ComplaintService {
     	return complaintRepository.findByAuthorities_id(authorityId,pageable)
     			.map(complaintMapper::toDto);
     }
+    
+    public Page<ComplaintDTO> findComplaintByUserIdpCode(String userIdpCode, Pageable pageable)
+    {
+    	return complaintRepository.findComplaintByUserIdpCode(userIdpCode,pageable)
+    			.map(complaintMapper::toDto);
+    }
 }

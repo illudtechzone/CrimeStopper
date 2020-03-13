@@ -118,4 +118,10 @@ public class MediaServiceImpl implements MediaService {
         return mediaSearchRepository.search(queryStringQuery(query), pageable)
             .map(mediaMapper::toDto);
     }
+    
+    public Page<MediaDTO> findAllMediaByComplaintId(Long complaintId, Pageable pageable)
+    {
+    	return mediaRepository.findAllMediaByComplaintId(complaintId,pageable)
+    			.map(mediaMapper::toDto);
+    }
 }
